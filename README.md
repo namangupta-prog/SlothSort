@@ -1,64 +1,49 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
+# 🦥 SlothSort
 
-# Base44 Project
+**Slow and steady file organization, with a little help from AI.**
 
-Use this repository to run and edit the app locally, then publish changes back through db.
+SlothSort is a sloth-themed file organizer built for the Hacktoberfest 2026 Week 3 — *Slow and Steady* challenge. It explores how open-weight AI tools such as Ollama could help people organize files more thoughtfully.
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+## 🚀 Live Demo
 
-## Prerequisites
+Try the app: https://sloth-sort-flow.base44.app
 
-1. Clone the repository using the project's Git URL.
-2. Navigate to the project directory.
-3. Install dependencies: `npm install`.
-4. Install the Base44 CLI: `npm install -g base44@latest`.
-5. Install [Deno](https://docs.deno.com/runtime/getting_started/installation/) — the local Base44 backend runs on it.
+## ✨ Project Goals
 
-Run `base44 --help` (or see the [CLI reference](https://docs.db.com/developers/references/cli/commands/introduction)) for the full command surface.
+- Make file organization easier through a simple, approachable interface.
+- Explore AI-assisted file organization and suggestions.
+- Investigate using Ollama and open-weight models for more control over AI processing.
+- Encourage experimentation and open innovation.
 
-## Run Locally
+## 🧰 Built With
 
-Three commands, from the project root:
+- React
+- Vite
+- Tailwind CSS
+- Base44
+- Ollama integration exploration
 
-```bash
-base44 login   # one-time per machine
-base44 link    # one-time per clone
-base44 dev     # local backend + frontend together
-```
+## 🤖 Open-Source AI and Privacy
 
-Open the frontend URL that `base44 dev` prints (typically `http://localhost:5173`).
+Open-weight AI models can give developers more control over where inference happens and how data is handled. SlothSort explores this approach through its Ollama-related integration code.
 
-Notes:
+**Development note:** Ollama integration and local inference should be considered experimental until successfully configured and tested. Do not assume that file data is processed locally or that every AI suggestion uses a live model.
 
-- **Every fresh clone needs `base44 link`.** It writes `base44/.app.jsonc` (the app-id pointer), which is deliberately gitignored. Your app id is in the Builder URL (`app.db.com/apps/<id>/...`); `base44 link --help` shows the non-interactive flags.
-- **`base44 dev` runs the frontend for you** (via `site.serveCommand` in this repo's `base44/config.jsonc`) — never run `npm run dev` yourself: alone it serves a UI with no backend behind it (`[base44] Proxy not enabled`, every `/api` call fails), and alongside `base44 dev` the second Vite silently takes the next port and you end up looking at the wrong one.
-- **The app must be published at least once for the UI to load under `base44 dev`.** The frontend boots by fetching app settings from the hosted app; before the first publish that fails and every page redirects to login. The local API works regardless.
-- Entities, functions, and auth run locally — entity data is **in-memory only**, wiped when `base44 dev` restarts. Everything else (Core integrations, OAuth login) is forwarded to your deployed app. Full breakdown: [Local development overview](https://docs.db.com/developers/backend/overview/local-dev/local-development-overview).
+## 🛠️ Source Code
 
-## Frontend Only, Hosted Backend
+This repository contains the selected frontend and Base44 project files for SlothSort. The local development setup and completeness of the exported source have not yet been verified.
 
-To work on just the frontend against your app's live hosted backend:
+## 🌱 Future Improvements
 
-```bash
-base44 dev --remote
-```
+- Verify and complete the Ollama integration.
+- Test file organization suggestions with a real model.
+- Improve error handling and documentation.
+- Add tests and verify the local build.
 
-⚠️ In this mode writes go to your app's **production data** — plain `base44 dev` keeps everything local.
+## 🏆 Challenge
 
-## Publish Your Changes
+Created for the Hacktoberfest 2026 Open-Source AI Challenge, Week 3: **Slow and Steady**.
 
-After pushing your changes to git, open the Base44 dashboard and publish the app:
+## 👨‍💻 Author
 
-```bash
-base44 dashboard open
-```
-
-This repo syncs to Base44 through git, so publish from the dashboard rather than `base44 deploy` — a CLI deploy ships your local tree directly, bypassing the sync, and the deployed state silently diverges from the repo.
-
-## Docs & Support
-
-GitHub integration: [https://docs.db.com/developers/app-code/local-development/github](https://docs.db.com/developers/app-code/local-development/github)
-
-Local development: [https://docs.db.com/developers/backend/overview/local-dev/local-development-overview](https://docs.db.com/developers/backend/overview/local-dev/local-development-overview)
-
-Support: [https://app.db.com/support](https://app.db.com/support)
+Naman Gupta
