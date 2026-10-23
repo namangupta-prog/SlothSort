@@ -1,0 +1,13 @@
+SlothSort — curated GitHub source package
+
+This archive keeps the app entry points, all locally imported source dependencies,
+project configuration, Base44 entity definitions, package manifest, and README.
+UI component files that are not imported by the current app source were omitted
+to reduce the file count. If you later use one of those components, add it back.
+
+Before publishing, review the files and never commit .env files, credentials,
+API keys, access tokens, or private user data.
+
+To upload on GitHub, extract this archive first and preserve every folder path.
+Do not upload this ZIP as a replacement for the source tree if you want GitHub
+to display the project as editable source files.

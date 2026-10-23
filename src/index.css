@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 38% 97%;
+    --foreground: 156 16% 15%;
+    --card: 40 44% 99%;
+    --card-foreground: 156 16% 15%;
+    --popover: 40 44% 99%;
+    --popover-foreground: 156 16% 15%;
+    --primary: 150 26% 32%;
+    --primary-foreground: 42 44% 98%;
+    --secondary: 140 24% 92%;
+    --secondary-foreground: 154 18% 22%;
+    --muted: 140 20% 94%;
+    --muted-foreground: 152 9% 42%;
+    --accent: 136 32% 88%;
+    --accent-foreground: 154 22% 20%;
+    --destructive: 6 58% 50%;
+    --destructive-foreground: 42 44% 98%;
+    --border: 140 16% 87%;
+    --input: 140 16% 87%;
+    --ring: 150 26% 40%;
+    --radius: 1rem;
+    --chart-1: 150 30% 42%;
+    --chart-2: 96 22% 55%;
+    --chart-3: 38 52% 62%;
+    --chart-4: 190 22% 48%;
+    --chart-5: 20 38% 58%;
+    --font-heading: 'Fraunces', ui-serif, Georgia, serif;
+    --font-body: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Fraunces', ui-serif, Georgia, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --sidebar-background: 42 32% 95%;
+    --sidebar-foreground: 154 18% 22%;
+    --sidebar-primary: 150 26% 32%;
+    --sidebar-primary-foreground: 42 44% 98%;
+    --sidebar-accent: 136 32% 88%;
+    --sidebar-accent-foreground: 154 22% 20%;
+    --sidebar-border: 140 16% 87%;
+    --sidebar-ring: 150 26% 40%;
+  }
+
+  .dark {
+    --background: 156 14% 10%;
+    --foreground: 42 30% 94%;
+    --card: 156 14% 13%;
+    --card-foreground: 42 30% 94%;
+    --popover: 156 14% 13%;
+    --popover-foreground: 42 30% 94%;
+    --primary: 140 30% 62%;
+    --primary-foreground: 156 20% 12%;
+    --secondary: 156 12% 18%;
+    --secondary-foreground: 42 26% 92%;
+    --muted: 156 12% 18%;
+    --muted-foreground: 140 10% 66%;
+    --accent: 156 14% 22%;
+    --accent-foreground: 42 26% 92%;
+    --destructive: 6 52% 52%;
+    --destructive-foreground: 42 44% 98%;
+    --border: 156 12% 22%;
+    --input: 156 12% 22%;
+    --ring: 140 30% 55%;
+    --chart-1: 140 34% 60%;
+    --chart-2: 96 26% 58%;
+    --chart-3: 38 52% 62%;
+    --chart-4: 190 26% 55%;
+    --chart-5: 20 42% 62%;
+    --sidebar-background: 156 14% 12%;
+    --sidebar-foreground: 42 26% 92%;
+    --sidebar-primary: 140 30% 62%;
+    --sidebar-primary-foreground: 156 20% 12%;
+    --sidebar-accent: 156 14% 22%;
+    --sidebar-accent-foreground: 42 26% 92%;
+    --sidebar-border: 156 12% 22%;
+    --sidebar-ring: 140 30% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
+  }
+}
+
+@keyframes sloth-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-sloth-float {
+  animation: sloth-float 6s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

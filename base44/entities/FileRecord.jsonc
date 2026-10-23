@@ -1,0 +1,125 @@
+{
+  "name": "FileRecord",
+  "type": "object",
+  "properties": {
+    "filename": {
+      "type": "string"
+    },
+    "search_name": {
+      "type": "string"
+    },
+    "file_type": {
+      "type": "string"
+    },
+    "file_size": {
+      "type": "number"
+    },
+    "file_uri": {
+      "type": "string"
+    },
+    "excerpt": {
+      "type": "string"
+    },
+    "is_sample": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "suggested",
+        "approved",
+        "rejected"
+      ],
+      "default": "new"
+    },
+    "suggested_filename": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Documents",
+        "Images",
+        "Work",
+        "School",
+        "Finance",
+        "Downloads",
+        "Other"
+      ]
+    },
+    "destination_folder": {
+      "type": "string"
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "number"
+    },
+    "ai_source": {
+      "type": "string",
+      "enum": [
+        "model",
+        "demo"
+      ]
+    },
+    "ai_model": {
+      "type": "string"
+    },
+    "suggested_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewed_date": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "filename",
+    "status"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
